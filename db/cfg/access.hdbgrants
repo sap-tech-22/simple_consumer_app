@@ -1,0 +1,14 @@
+{
+    "hdibasics-grantor": {
+        "object_owner": {
+            "container_roles": [
+                "com.hdibasics::hdiaccess_g#"
+            ] 
+        },
+        "application_user": {
+            "container_roles": [
+                "com.hdibasics::hdiaccess"
+            ]
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "SIMPLE_CONSUMER_APP_SYN_STUDENTS": {
+        "target": {
+            "object": "com.hdibasics.TB::student",
+            "schema.configure": "hdibasics-grantor/schema"
+        }
+    },
+    "SIMPLE_CONSUMER_APP_SYN_KNA1": {
+        "target": {
+            "object": "TARGET_KNA1",
+            "schema.configure": "hdibasics-grantor/schema"
+        }
+    },
+    "SIMPLE_CONSUMER_APP_SYN_MARA": {
+        "target": {
+            "object": "com.hdibasics.VT::VT_MARA",
+            "schema.configure": "hdibasics-grantor/schema"
+        }
+    }
+}
