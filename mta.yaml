@@ -14,31 +14,31 @@ build-parameters:
 
 modules:
   # ---------------- DATABASE DEPLOYER MODULE ------------------
-  - name: simple_consumer_app-db-deployer
+  - name: consumer_app-db-deployer
   # ------------------------------------------------------------
     type: hdb
     path: gen/db
     parameters:
       buildpack: nodejs_buildpack
     requires:
-      - name: simple_consumer_app-db
+      - name: consumer_app-db
         properties:                   
-          TARGET_CONTAINER: simple_consumer_app_HDI    
-      - name: hdibasics-grantor
+          TARGET_CONTAINER: consumer_app_HDI    
+      - name: hdibasics_syn-grantor
         group: SERVICE_REPLACEMENTS
         properties:
           key: hdibasics-grantor
           service: ~{hdibasics-grantor-service}
 
   # --------------------- SERVER MODULE ------------------------
-  - name: simple_consumer_app-srv
+  - name: consumer_app-srv
   # ------------------------------------------------------------
     type: nodejs
     path: gen/srv
     parameters:
       buildpack: nodejs_buildpack
     requires:
-      - name: simple_consumer_app-db
+      - name: consumer_app-db
     provides:
       - name: srv-api
         properties:
@@ -52,20 +52,20 @@ resources:
 
 
   # ------------------- HDI CONTAINER SERVICE ------------------
-  - name: simple_consumer_app-db
+  - name: consumer_app-db
   # ------------------------------------------------------------
     type: com.sap.xs.hdi-container
     parameters:
       service: hana
       service-plan: hdi-shared
-      service-name: simple_consumer_app_HDI  
+      service-name: consumer_app_HDI  
       config:                               
-         schema: simple_consumer_app_HDI      
+         schema: consumer_app_HDI      
     properties:
       hdi-service-name: ${service-name}
 
 
-  - name: hdibasics-grantor
+  - name: hdibasics_syn-grantor
     type: org.cloudfoundry.existing-service
     parameters:
       service-name: hdi_hanabasic
